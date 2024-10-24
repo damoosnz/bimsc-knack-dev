@@ -8,3 +8,4 @@ const netlifyBaseUrl = 'https://bimsc-knack-dev.netlify.app';
 import KnackAPI from 'https://cdn.skypack.dev/knack-api-helper@2.2.4'
 import axios from 'https://cdn.skypack.dev/axios';
 
+import './dev/dev-config.js'
