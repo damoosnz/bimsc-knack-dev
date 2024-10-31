@@ -109,7 +109,7 @@ if (knackDevMode === 'true') {
                 let match = false
                 fields.forEach(field => {
                     if (thElement.hasClass(field.key)) {
-                        const newTh = $('<th style="background: black; color: white;"></th>').html(`<span>${field.key}</span><br><span>${field.name}</span><br><span>${field.type}</span><br><span>in ${field.object_key} ${field.object_name} </span>`); // Add field name or any content you want
+                        const newTh = $('<th class="fas-dev"></th>').html(`<span>${field.key}</span><br><span>${field.name}</span><br><span>${field.type}</span><br><span>in ${field.object_key} ${field.object_name} </span>`); // Add field name or any content you want
                         fieldTr.append(newTh);
                         match = true
                     } else {
