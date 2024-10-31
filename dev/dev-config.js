@@ -100,7 +100,7 @@ if (knackDevMode === 'true') {
         function devShowFieldsNameTable(view) {
 
             var fields = devGetViewFieldsTable(view)
-
+            console.log(fields)
 
             // add field info in the table header
             const fieldTr = $('<tr></tr>');
