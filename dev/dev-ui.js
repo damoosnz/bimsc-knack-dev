@@ -6,19 +6,19 @@ const knackLs = {
     showDevMode: localStorage.getItem("showDevEnvInfo") || "no",
     consDevMode: localStorage.getItem("showDevConsInfo") || "no"
 };
-
 console.log("knackLs", knackLs);
 
 addDevBar();
 
 function addDevBar() {
+
     // Function to create labeled radio inputs
     const createInput = (label, name) => {
         return $(`
             <div>
                 <label>${label}:</label>
-                <input type="radio" name="${name}" value="yes"> Yes
-                <input type="radio" name="${name}" value="no"> No
+                <input type="radio" name="${name}" value="true"> Yes
+                <input type="radio" name="${name}" value="false"> No
             </div>
         `);
     };
