@@ -14,6 +14,9 @@ const devUi =   `
             <label>Log Dev Mode:</label>
             <input type="radio" name="logDevMode" value="yes"> Yes
             <input type="radio" name="logDevMode" value="no" checked> No
+
+            <button id="reloadBtn">Reload</button>
+            
         </div>
     </div>
                 `
