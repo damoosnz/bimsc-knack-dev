@@ -1,6 +1,6 @@
 const $knackNavBar = $('.kn-info-bar')
 
-const devUi =   `
+const $devUi = `
     <div class="fas.dev">
         <div class="fas-ui>
             <label>Dev Mode:</label>
@@ -16,7 +16,10 @@ const devUi =   `
             <input type="radio" name="logDevMode" value="no" checked> No
 
             <button id="reloadBtn">Reload</button>
-            
+
         </div>
     </div>
                 `
+
+
+$knackNavBar.appendAfter($devUi)
