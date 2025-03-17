@@ -23,7 +23,7 @@ if (knackDevMode === 'true') {
 
             // define the fas-dev-container
 
-            var devContainer = `<div id="fas-dev-container-${view.key}" class="fas-dev-container" style="background: black; color: white;"></div>`
+            var devContainer = `<div id="fas-dev-container-${view.key}" class="fas-dev-container"></div>`
             $('#' + view.key).prepend(devContainer)
             var $devContainer = $(`#fas-dev-container-${view.key}`)
 

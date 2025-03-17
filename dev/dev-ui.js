@@ -1,7 +1,7 @@
 const $knackNavBar = $('.kn-info-bar')
 
 const $devUi = `
-    <div class="fas.dev">
+    <div class="fas-dev">
         <div class="fas-ui>
             <label>Dev Mode:</label>
             <input type="radio" name="devMode" value="yes"> Yes
