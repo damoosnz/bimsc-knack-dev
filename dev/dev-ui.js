@@ -7,8 +7,9 @@ const knackLs = {
     consDevMode: localStorage.getItem("showDevConsInfo") || "no"
 };
 
-addDevBar()
+console.log('knackLs',knackLs)
 
+addDevBar()
 
 function addDevBar() {
     // Prepare the HTML for the dev bar
