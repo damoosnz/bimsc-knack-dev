@@ -22,4 +22,4 @@ const $devUi = `
                 `
 
 
-$knackNavBar.appendAfter($devUi)
+$(devUi).insertAfter($knackNavBar);
