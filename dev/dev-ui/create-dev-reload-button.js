@@ -19,8 +19,8 @@ export function createDevReloadButton() {
                 showFields: $(`input[name="showFieldsData"]:checked`).prop("checked")
             }
         }
-        console.log('userDevMode', userDevMode)
-        console.log('userDevOptions', userDevOptions)
+        // console.log('userDevMode', userDevMode)
+        // console.log('userDevOptions', userDevOptions)
         localStorage.setItem("knackDevMode", userDevMode);
         localStorage.setItem("knackDevOptions", JSON.stringify(userDevOptions));
 

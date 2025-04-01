@@ -13,7 +13,7 @@ let devOptions = initDevOptions()
 // Retrieve values from localStorage
 devMode = localStorage.getItem("knackDevMode") === "true" ? true : false
 devOptions = JSON.parse(localStorage.getItem("knackDevOptions")) || devOptions
-console.log('devOptions', devOptions)
+// console.log('devOptions', devOptions)
 
 
 addDevBar();

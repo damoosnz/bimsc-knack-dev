@@ -29,7 +29,7 @@ const consolelogDev = setDevConsoleLog(knackDevOptions.console.showDevLogs)
 
 $(document).on('knack-view-render.any', async function (event, view, data) {
 
-    console.log(`${view.key} dev config`, view)
+    // console.log(`${view.key} dev config`, view)
 
     // create the dev div container to receive dev info
     const $devContainer = createDevContainer(view)

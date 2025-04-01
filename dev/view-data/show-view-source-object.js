@@ -11,7 +11,7 @@ export function getViewSourceObject(view) {
         }
         return $(`<div class="fas-dev">displays: ${viewSourceObject.key} ${viewSourceObject.name}</b></div>`)
     } catch (err) { 
-        console.log('this viwew is not based on a an object')
+        // console.log('this viwew is not based on a an object')
     }
 
 }
