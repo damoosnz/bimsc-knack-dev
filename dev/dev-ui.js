@@ -1,73 +1,69 @@
-const $knackNavBar = $(".kn-info-bar");
+import { initDevOptions } from "./dev-options/init-dev-options.js";
+import { createDevOptionsInput } from "./dev-ui/create-dev-options-input.js";
+import { createDevReloadButton } from "./dev-ui/create-dev-reload-button.js";
+
+// define the section to insert the dev option bar after
+const $knackInfoBar = $(".kn-info-bar");
+
+// structure and init the local storage object
+
+let devMode = true
+let devOptions = initDevOptions()
 
 // Retrieve values from localStorage
-const knackLs = {
-    devMode: localStorage.getItem("knackDevMode") || "no",
-    showDevMode: localStorage.getItem("showDevEnvInfo") || "no",
-    consDevMode: localStorage.getItem("showDevConsInfo") || "no"
-};
-console.log("knackLs", knackLs);
+devMode = localStorage.getItem("knackDevMode") === "true" ? true : false
+devOptions = JSON.parse(localStorage.getItem("knackDevOptions")) || devOptions
+console.log('devOptions', devOptions)
+
 
 addDevBar();
 
 function addDevBar() {
 
-    // Function to create labeled radio inputs
-    const createInput = (label, name) => {
-        return $(`
-            <div>
-                <label>${label}:</label>
-                <input type="radio" name="${name}" value="true"> Yes
-                <input type="radio" name="${name}" value="false"> No
-            </div>
-        `);
-    };
-
-    // Function to create the reload button
-    const createButton = () => {
-        const $btn = $(`<button id="reloadBtn">Reload</button>`);
-
-        $btn.on("click", function () {
-            // Update localStorage with selected values
-            localStorage.setItem("knackDevMode", $(`input[name="devMode"]:checked`).val());
-            localStorage.setItem("showDevEnvInfo", $(`input[name="showDevMode"]:checked`).val());
-            localStorage.setItem("showDevConsInfo", $(`input[name="logDevMode"]:checked`).val());
-
-            // Reload the page
-            location.reload();
-        });
-
-        return $btn;
-    };
-
     // Create the dev bar container
-    const $devContainer = $(`<div class="fas-dev"></div>`);
+    const $devContainer = $(`<div class="fas-dev-container"></div>`);
     const $devUi = $(`<div class="fas-ui"></div>`);
+    const $devUiTable = $(`
+        <table>
+            <tr>
+                <td>Dev Mode</td>
+                <td>Console Logs</td>
+                <td>View Data</td>
+                <td>Field</td>
+            </tr>
+            <tr>
+                <td id="devMode"></td>
+                <td id="showLogs"></td>
+                <td id="viewData"></td>
+                <td id="showFields"></td>
+            </tr>
+        </table>`)
 
     // Create input groups
-    const $devModeInput = createInput("Dev Mode", "devMode");
-    const $showDevModeInput = createInput("Show Dev Mode", "showDevMode");
-    const $logDevModeInput = createInput("Log Dev Mode", "logDevMode");
-    const $reloadButton = createButton();
+
+    const devOptionsInput = [
+        { label: 'Dev Mode', name: 'devMode', value: devMode, $id: 'devMode' },
+        { label: 'Log Dev Mode', name: 'showDevLogs', value: devOptions.console.showDevLogs, $id: 'showLogs' },
+        { label: 'Show View key', name: 'showViewKey', value: devOptions.viewData.showKey, $id: 'viewData' },
+        { label: 'Show View Path', name: 'showViewPath', value: devOptions.viewData.showPath, $id: 'viewData' },
+        { label: 'Show View Source', name: 'showViewSource', value: devOptions.viewData.showSource, $id: 'viewData' },
+        { label: 'Show View Scripts', name: 'showViewScripts', value: devOptions.viewData.showScripts, $id: 'viewData' },
+        { label: 'Show Fields Data', name: 'showFieldsData', value: devMode, $id: 'showFields' },
+        // {label:'',name:''},
+    ]
+
+    devOptionsInput.forEach(option => {
+        const $optionInput = createDevOptionsInput(option.label, option.name);
+        $optionInput.find('input').prop("checked", option.value);
+        $devUiTable.find(`#${option.$id}`).append($optionInput)
+    })
+
+    const $reloadButton = createDevReloadButton();
 
     // Append elements
-    $devUi.append($devModeInput, $showDevModeInput, $logDevModeInput, $reloadButton);
+    $devUi.append($devUiTable, $reloadButton);
     $devContainer.append($devUi);
-    $devContainer.insertAfter($knackNavBar); // Append UI to DOM
+    $devContainer.insertAfter($knackInfoBar); // Append UI to DOM
 
-    // Set checked states **AFTER** inserting into DOM
-    $(`input[name="devMode"][value="${knackLs.devMode}"]`).prop("checked", true);
-    $(`input[name="showDevMode"][value="${knackLs.showDevMode}"]`).prop("checked", true);
-    $(`input[name="logDevMode"][value="${knackLs.consDevMode}"]`).prop("checked", true);
 }
-
-
-
-
-
-
-
-
-
-
 
