@@ -25,7 +25,7 @@ function extractFieldData($th, fields, objects) {
     const thFieldClass = thClasses.find(className => className.includes('field'));
     const thViewLinkClass = thClasses.find(className => className.includes('Link'));
 
-    let $fieldTh = $('<td class="fas-dev"></td>')
+    let $fieldTh = $('<td class="bimsc-knack-dev"></td>')
     const fieldsProperties = []
 
     if (thFieldClass && thFieldClass.length > 0) {

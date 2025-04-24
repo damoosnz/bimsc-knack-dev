@@ -9,7 +9,7 @@ export function getViewSourceObject(view) {
             key: view.source.object,
             name: objects.find(item => item.attributes.key === view.source.object).attributes.name
         }
-        return $(`<div class="fas-dev">displays: ${viewSourceObject.key} ${viewSourceObject.name}</b></div>`)
+        return $(`<div class="bimsc-knack-dev">displays: ${viewSourceObject.key} ${viewSourceObject.name}</b></div>`)
     } catch (err) { 
         // console.log('this viwew is not based on a an object')
     }

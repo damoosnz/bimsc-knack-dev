@@ -21,8 +21,8 @@ addDevBar();
 function addDevBar() {
 
     // Create the dev bar container
-    const $devContainer = $(`<div class="fas-dev-container"></div>`);
-    const $devUi = $(`<div class="fas-ui"></div>`);
+    const $devContainer = $(`<div class="bimsc-knack-dev-container"></div>`);
+    const $devUi = $(`<div class="bimsc-knack-dev-ui"></div>`);
     const $devUiTable = $(`
         <table>
             <tr>

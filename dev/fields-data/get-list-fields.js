@@ -19,7 +19,7 @@ function extractFieldData($fld, fields, objects) {
     let fieldClasses = ($fld.attr("class") || '').split(/\s+/)
     let fieldClass = fieldClasses.find(className => className.includes('field'))
 
-    let $fieldData = $('<td class="fas-dev"></td>')
+    let $fieldData = $('<td class="bimsc-knack-dev"></td>')
     const fieldsProperties = []
 
     if (fieldClass && fieldClass.length > 0) {

@@ -19,7 +19,7 @@ function extractFieldData($fld, fields, objects) {
     const fieldInputData = $fld.attr('class');
     const field = fields.find(el => el.attributes.key === fieldInputData)
 
-    let $fieldData = $('<div class="fas-dev"></div>')
+    let $fieldData = $('<div class="bimsc-knack-dev"></div>')
     const fieldsProperties = []
 
     if (field) {

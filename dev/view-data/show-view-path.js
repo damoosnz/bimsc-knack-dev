@@ -20,6 +20,6 @@ export function get$ViewPath(view) {
 
     }
 
-    return $(`<div class="fas-dev">${path}</div>`)
+    return $(`<div class="bimsc-knack-dev">${path}</div>`)
 
 }

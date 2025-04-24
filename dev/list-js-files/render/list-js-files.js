@@ -7,7 +7,7 @@ export async function listJsFiles1(view, jsFiles) {
     // const foundInFiles = [];
 
 
-    var $scriptItems = $(`<div class="fas-dev"><ul>Scripts</ul></div>`)
+    var $scriptItems = $(`<div class="bimsc-knack-dev"><ul>Scripts</ul></div>`)
     var $ul = $scriptItems.find('ul');
 
     // Fetch and search through each JS file
@@ -20,7 +20,7 @@ export async function listJsFiles1(view, jsFiles) {
             for (const searchKey of searchKeys) {
                 if (scriptContent.includes(searchKey)) {
                     // foundInFiles.push({ file: jsFile.name, key: searchKey });
-                    $ul.append(`<li class="fas-dev">${searchKey} in ${jsFile.name.replace('http://localhost:8888/', '').trim()}</li>`)
+                    $ul.append(`<li class="bimsc-knack-dev">${searchKey} in ${jsFile.name.replace('http://localhost:8888/', '').trim()}</li>`)
                 }
             }
         } catch (error) {
@@ -36,7 +36,7 @@ export async function listJsFiles(view, jsFiles) {
     // Array to hold results of the search
     const searchKeys = [view.key]; // [view.key, ".any", `.${view.type}`]
 
-    var $scriptItems = $(`<div class="fas-dev"><ul>Scripts</ul></div>`)
+    var $scriptItems = $(`<div class="bimsc-knack-dev"><ul>Scripts</ul></div>`)
     var $ul = $scriptItems.find('ul');
 
     // Fetch and search through each JS file
@@ -52,7 +52,7 @@ export async function listJsFiles(view, jsFiles) {
                 
                 // If the search key is found as a whole word (not part of a larger word like view_1234)
                 if (regex.test(scriptContent)) {
-                    $ul.append(`<li class="fas-dev">${searchKey} in ${jsFile.name.replace('http://localhost:8888/', '').trim()}</li>`)
+                    $ul.append(`<li class="bimsc-knack-dev">${searchKey} in ${jsFile.name.replace('http://localhost:8888/', '').trim()}</li>`)
                 }
             }
         } catch (error) {
