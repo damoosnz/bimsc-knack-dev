@@ -1,7 +1,6 @@
 export function getListFields(view) {
 
     const fields = view.fields
-    console.log('dev fields', fields.map(f => ({ key: f.key, name: f.name })))
     const objects = Knack.objects.models
 
     const $firstCard = $(`#${view.key} .kn-list-item-container`).first();
@@ -19,7 +18,6 @@ function extractFieldData($fld, fields, objects) {
 
     let fieldClasses = ($fld.attr("class") || '').split(/\s+/)
     let fieldClass = fieldClasses.find(className => className.includes('field'))
-    console.log('dev fieldClass', fieldClass)
 
     let $fieldData = $('<td class="bimsc-knack-dev"></td>')
     const fieldsProperties = []
