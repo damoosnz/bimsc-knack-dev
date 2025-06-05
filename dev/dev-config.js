@@ -18,7 +18,7 @@ import { getListFields } from "./fields-data/get-list-fields.js";
 
 // add view and scene keys
 
-const knackDevMode = localStorage.getItem('knackDevMode');
+// const knackDevMode = localStorage.getItem('knackDevMode');
 const knackDevOptions = JSON.parse(localStorage.getItem('knackDevOptions')) || initDevOptions();
 
 

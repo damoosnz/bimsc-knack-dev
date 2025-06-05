@@ -1,6 +1,7 @@
 export function getListFields(view) {
 
     const fields = view.fields
+    console.log('dev fields', fields.map(f => ({ key: f.key, name: f.name })))
     const objects = Knack.objects.models
 
     const $firstCard = $(`#${view.key} .kn-list-item-container`).first();
@@ -15,34 +16,39 @@ export function getListFields(view) {
 }
 
 function extractFieldData($fld, fields, objects) {
-   
+
     let fieldClasses = ($fld.attr("class") || '').split(/\s+/)
     let fieldClass = fieldClasses.find(className => className.includes('field'))
+    console.log('dev fieldClass', fieldClass)
 
     let $fieldData = $('<td class="bimsc-knack-dev"></td>')
     const fieldsProperties = []
 
     if (fieldClass && fieldClass.length > 0) {
 
-        const field = fields.find(fld => fld.key === fieldClass)
+        try {
+            const field = fields.find(fld => fld.key === fieldClass)
 
-        const $key = $(`<div>key: ${field.key}</div>`)
-        fieldsProperties.push($key)
+            const $key = $(`<div>key: ${field.key}</div>`)
+            fieldsProperties.push($key)
 
-        const $name = $(`<div>name: ${field.name}</div>`)
-        fieldsProperties.push($name)
+            const $name = $(`<div>name: ${field.name}</div>`)
+            fieldsProperties.push($name)
 
-        const $type = $(`<div>type: ${field.type}</div>`)
-        fieldsProperties.push($type)
+            const $type = $(`<div>type: ${field.type}</div>`)
+            fieldsProperties.push($type)
 
-        // const $objectKey = $(`<div>object: ${field.object_key}</div>`)
-        // fieldsProperties.push($objectKey)
+            // const $objectKey = $(`<div>object: ${field.object_key}</div>`)
+            // fieldsProperties.push($objectKey)
 
-        const objectName = objects.find(obj => obj.attributes.key === field.object_key)
-        const $objectName = $(`<div>object: ${objectName.attributes.name} (${field.object_key})</div>`)
-        fieldsProperties.push($objectName)
+            const objectName = objects.find(obj => obj.attributes.key === field.object_key)
+            const $objectName = $(`<div>object: ${objectName.attributes.name} (${field.object_key})</div>`)
+            fieldsProperties.push($objectName)
 
-        fieldsProperties.forEach(prop => { $fieldData.append(prop) })
+            fieldsProperties.forEach(prop => { $fieldData.append(prop) })
+        } catch (err) {
+
+        }
 
     }
 
