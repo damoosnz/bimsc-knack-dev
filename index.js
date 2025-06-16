@@ -1,3 +1,3 @@
 
-import './dev/dev-config.js'
-import './dev/dev-ui.js'
+import './dev-topics/dev-topics.js'
+import './dev-ui/render/dev-ui.js'

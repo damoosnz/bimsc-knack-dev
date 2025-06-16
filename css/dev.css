@@ -1,0 +1,37 @@
+/* dev */
+
+.bimsc-knack-dev {
+    background: black;
+    color: white;
+    font-size: 0.8em;
+}
+
+.bimsc-knack-dev-container {
+    background: black !important;
+    color: white;
+    padding-bottom: 10px; 
+    /*margin-bottom: 10px;
+    box-shadow: 0 0 0 10px white;
+     Creates a white 'border' effect */
+}
+
+.bimsc-knack-dev-ui {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Align items vertically */
+    gap: 15px; /* Space between items */
+    padding: 10px;
+    flex-wrap: wrap; /* Ensures it stays on one line unless screen is too small */
+}
+
+.bimsc-knack-dev-ui label {
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.bimsc-knack-dev-ui table {
+    max-width: 800px; /* Limit table width */
+    width: 100%; /* Make it responsive */
+    margin: 0 auto; /* Center horizontally */
+    border-collapse: collapse; /* Optional: Ensures clean borders */
+}
