@@ -5,6 +5,7 @@ export function get$TableFields(view) {
 
     const $tableHead = $(`#${view.key} thead`)
     const $tableHeadTr = $(`#${view.key} thead tr`)
+    
     const $fieldsTr = $('<tr class="bimsc-knack-dev fields-data"></tr>')
 
     $tableHeadTr.find('th').each(function () {

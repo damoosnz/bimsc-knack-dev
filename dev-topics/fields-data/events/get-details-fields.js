@@ -1,4 +1,4 @@
-import { getKnackConst } from "../../../dev/knack-const/get-Knack-const.js";
+import { getKnackConst } from "../../knack-const/get-Knack-const.js";
 
 export function get$DetailsFields(view) {
 
