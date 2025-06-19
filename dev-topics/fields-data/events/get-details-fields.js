@@ -1,4 +1,5 @@
 import { getKnackConst } from "../../knack-const/get-Knack-const.js";
+import { createLinkToBuilderField } from "../../view-data/functions/create-links-to-builder.js";
 
 export function get$DetailsFields(view) {
 
@@ -39,6 +40,9 @@ function extractFieldData($fld, fields, objects) {
         const objectName = objects.find(obj => obj.attributes.key === field.attributes.object_key) // 
         const $objectName = $(`<div>object: ${objectName.attributes.name} (${field.attributes.object_key})</div>`)
         fieldsProperties.push($objectName)
+
+        const $link = createLinkToBuilderField(field.attributes.object_key, field.attributes.key)
+        fieldsProperties.push($link)
 
         fieldsProperties.forEach(prop => { $fieldData.append(prop) })
 

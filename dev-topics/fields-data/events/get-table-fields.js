@@ -1,3 +1,5 @@
+import { createLinkToBuilderField } from "../../view-data/functions/create-links-to-builder.js"
+
 export function get$TableFields(view) {
 
     const fields = view.fields
@@ -5,7 +7,7 @@ export function get$TableFields(view) {
 
     const $tableHead = $(`#${view.key} thead`)
     const $tableHeadTr = $(`#${view.key} thead tr`)
-    
+
     const $fieldsTr = $('<tr class="bimsc-knack-dev fields-data"></tr>')
 
     $tableHeadTr.find('th').each(function () {
@@ -18,7 +20,7 @@ export function get$TableFields(view) {
 
 }
 
-function extractFieldData($th, fields, objects) {    
+function extractFieldData($th, fields, objects) {
 
     const thClasses = ($th.attr('class') || '').split(/\s+/);
     const thFieldClass = thClasses.find(className => className.includes('field'));
@@ -31,21 +33,21 @@ function extractFieldData($th, fields, objects) {
 
         const field = fields.find(fld => fld.key === thFieldClass)
 
-        const $key = $(`<div>key: ${field.key}</div>`)
+        const $key = $(`<div class="field-prop"><b>key:</b> ${field.key}</div>`)
         fieldsProperties.push($key)
 
-        const $name = $(`<div>name: ${field.name}</div>`)
+        const $name = $(`<div class="field-prop"><b>name:</b> ${field.name}</div>`)
         fieldsProperties.push($name)
 
-        const $type = $(`<div>type: ${field.type}</div>`)
+        const $type = $(`<div class="field-prop"><b>type:</b> ${field.type}</div>`)
         fieldsProperties.push($type)
 
-        // const $objectKey = $(`<div>object: ${field.object_key}</div>`)
-        // fieldsProperties.push($objectKey)
-
         const objectName = objects.find(obj => obj.attributes.key === field.object_key)
-        const $objectName = $(`<div>object: ${objectName.attributes.name} (${field.object_key})</div>`)
+        const $objectName = $(`<div class="field-prop"><b>object:</b> ${objectName.attributes.name} (${field.object_key})</div>`)
         fieldsProperties.push($objectName)
+
+        const $link = createLinkToBuilderField(field.object_key, field.key)
+        fieldsProperties.push($link)
 
         fieldsProperties.forEach(prop => { $fieldTh.append(prop) })
 

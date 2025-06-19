@@ -8,12 +8,10 @@ export async function get$viewScripts(view) {
     // Array to hold results of the search
     const searchKeys = [view.key]; // [view.key, ".any", `.${view.type}`]
 
-    var $scriptItems = $(`
-        <div class="bimsc-knack-dev script"><b>Scripts</b><div> 
-        <ul></ul>
-        `)
-    var $ul = $scriptItems.find('ul');
-
+    const $viewScripts = $('<div class="bimsc-knack-dev-line-item script"></div>')
+    $viewScripts.append(`<div class="bimsc-knack-dev"><b>SCRIPTS</b><div>`)
+    $viewScripts.append(`<ul class="bimsc-knack-dev"></ul>`)
+    var $ul = $viewScripts.find('ul');
 
     let matched = 0
     let notMatched = 0
@@ -47,7 +45,7 @@ export async function get$viewScripts(view) {
     // console.log(`js files search for ${view.key}`, { total: jsFiles.length, matched, notMatched, failed })
 
     if (matched > 0) {
-        return $scriptItems
+        return $viewScripts
     }
 
     ;

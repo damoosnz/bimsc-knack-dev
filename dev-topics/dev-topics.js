@@ -13,7 +13,6 @@ async function runEnabledHandlers1(config) {
     for (const section of Object.values(config)) {
         for (const item of Object.values(section)) {
             if (item?.on && typeof item.handler === 'function') {
-                console.log(`dev setting: ${section} - ${item} - ${item.on}`)
                 await item.handler(item.on);
             }
         }
@@ -24,7 +23,6 @@ async function runEnabledHandlers(config) {
     for (const [sKey, section] of Object.entries(config)) {
         for (const [iKey, item] of Object.entries(section)) {
             if (item?.on && typeof item.handler === 'function') {
-                console.log(`dev settings: ${sKey}.${iKey} - on: ${item.on}`);
                 await item.handler(item.on);
             }
         }

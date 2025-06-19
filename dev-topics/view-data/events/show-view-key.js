@@ -1,14 +1,27 @@
+import { createLinkToBuilderScene, createLinkToBuilderView } from "../functions/create-links-to-builder.js"
+
 export function get$ViewKey(view) {
 
     const key = view.key
     const knackView = Knack.views[key].model.view
 
+    const $viewkey = $('<div class="bimsc-knack-dev-line-item key"></div>')
+    $viewkey.append($('<div>').addClass('bimsc-knack-dev').html('<b>KEY</b>'))
+
+    let $viewKeyText
+
     try {
-        return $(`<div class="bimsc-knack-dev key"><b>${knackView.scene.key} ${knackView.key} (${knackView.scene.slug}) view type: ${knackView.type}</b></div>`)
+        $viewKeyText = `<div class="bimsc-knack-dev"><b>${knackView.scene.key} ${knackView.key} (${knackView.scene.slug}) view type: ${knackView.type}</b></div>`
+        $viewkey.append($viewKeyText)
+        $viewkey.append(createLinkToBuilderScene(knackView) , createLinkToBuilderView(knackView))
     } catch (err) {
-        return $(`<div class="bimsc-knack-dev key"><b>${knackView.key}</b></div>`)
+        try {
+        $viewKeyText = `<div class="bimsc-knack-dev"><b>${knackView.key}</b></div>`
+        $viewkey.append($viewKeyText)
+        } catch (err) {}    
     }
 
+    return $viewkey
 
 }
 

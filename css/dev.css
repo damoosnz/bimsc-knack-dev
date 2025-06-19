@@ -1,11 +1,5 @@
 /* dev */
 
-.bimsc-knack-dev {
-    background: black;
-    color: white;
-    font-size: 0.8em;
-}
-
 .bimsc-knack-dev-container {
     background: black !important;
     color: white;
@@ -13,6 +7,34 @@
     /*margin-bottom: 10px;
     box-shadow: 0 0 0 10px white;
      Creates a white 'border' effect */
+}
+
+.bimsc-knack-dev-line-item {
+    display: flex;
+    justify-content: left; /* Center horizontally */
+    align-items: center; /* Align items vertically */
+    gap: 15px; /* Space between items */
+    padding: 0 5px;
+    flex-wrap: wrap; /* Ensures it stays on one line unless screen is too small */
+}
+
+.bimsc-knack-dev-button {
+    border-radius: 4px;
+    background: darkslategrey !important;
+    color: white !important;
+    padding: 0 4px;
+}
+
+.bimsc-knack-dev.field-prop{
+    padding: 1px 0;
+}
+
+
+
+.bimsc-knack-dev {
+    background: black;
+    color: white;
+    font-size: 0.8em;
 }
 
 .bimsc-knack-dev-ui {

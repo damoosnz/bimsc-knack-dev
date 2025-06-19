@@ -21,6 +21,10 @@ export function get$ViewPath(view) {
 
     }
 
-    return $(`<div class="bimsc-knack-dev path">${path}</div>`)
+    const $viewPath = $('<div class="bimsc-knack-dev-line-item path"></div>')
+    $viewPath.append($('<div>').addClass('bimsc-knack-dev').html('<b>PATH</b>'))
+    $viewPath.append(`<div class="bimsc-knack-dev">${path}</div>`)
+
+    return $viewPath
 
 }

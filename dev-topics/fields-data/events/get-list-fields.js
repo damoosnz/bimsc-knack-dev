@@ -1,3 +1,5 @@
+import { createLinkToBuilderField } from "../../view-data/functions/create-links-to-builder.js";
+
 export function get$ListFields(view) {
 
     const fields = view.fields
@@ -42,6 +44,9 @@ function extractFieldData($fld, fields, objects) {
             const objectName = objects.find(obj => obj.attributes.key === field.object_key)
             const $objectName = $(`<div>object: ${objectName.attributes.name} (${field.object_key})</div>`)
             fieldsProperties.push($objectName)
+
+            const $link = createLinkToBuilderField(field.object_key, field.key)
+            fieldsProperties.push($link)
 
             fieldsProperties.forEach(prop => { $fieldData.append(prop) })
         } catch (err) {

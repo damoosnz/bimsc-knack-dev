@@ -80,7 +80,6 @@ export function renderDevModeInput($devUiTable) {
     $devMode.find('input[type="checkbox"]').on('change', function () {
         const isChecked = $(this).is(':checked');
         localStorage.setItem('knackDevMode', JSON.stringify(isChecked));
-        console.log('Dev mode is now:', isChecked);
     });
 
     return $devUiTable

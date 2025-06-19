@@ -11,8 +11,6 @@ export function addDevBar() {
     let dev = initDev()
     dev = configDev(dev)
 
-    console.log(dev)
-
     // define the section to insert the dev option bar after
     const $knackInfoBar = $(".kn-info-bar");
 
