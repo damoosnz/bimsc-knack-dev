@@ -1,4 +1,4 @@
-import { createLinkToBuilderScene, createLinkToBuilderView } from "../functions/create-links-to-builder.js"
+import { createLinkToBuilderSceneFromView, createLinkToBuilderView } from "../functions/create-links-to-builder.js"
 
 export function get$ViewKey(view) {
 
@@ -13,7 +13,7 @@ export function get$ViewKey(view) {
     try {
         $viewKeyText = `<div class="bimsc-knack-dev"><b>${knackView.scene.key} ${knackView.key} (${knackView.scene.slug}) view type: ${knackView.type}</b></div>`
         $viewkey.append($viewKeyText)
-        $viewkey.append(createLinkToBuilderScene(knackView) , createLinkToBuilderView(knackView))
+        $viewkey.append(createLinkToBuilderSceneFromView(knackView) , createLinkToBuilderView(knackView))
     } catch (err) {
         try {
         $viewKeyText = `<div class="bimsc-knack-dev"><b>${knackView.key}</b></div>`

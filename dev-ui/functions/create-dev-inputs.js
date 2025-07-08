@@ -30,13 +30,6 @@ export function renderDevInputs(dev, $devUiTable) {
                     // create the input
                     $input = createDevCheckBox(curInput.label, l2Key, config.on)
 
-                    // Update the dev object directly when the checkbox changes
-                    // $devUiTable.find(`input[name="${input.name}"]`).on('change', function () {
-                    //     const newVal = $(this).is(':checked');
-                    //     dev[l1Key][l2Key].on = newVal;
-                    //     saveDev(dev)
-                    // });
-
                     // Capture keys per iteration with closure
                     // function eventwraper(l1, l2) {
                     $input.find(`input[name="${l2Key}"]`).on('change', function () {
@@ -54,7 +47,8 @@ export function renderDevInputs(dev, $devUiTable) {
                 }
 
                 if (curInput.type === 'search') {
-                    // $input = createDevSearchBox(input.label, input.name, input.event)
+                    $input = createDevSearchBox(curInput.label, config.handler)
+                    $devUiTable.find(`#${l1Key}`).append($input)
                 }
 
 

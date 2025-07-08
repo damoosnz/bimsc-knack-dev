@@ -52,7 +52,7 @@
 }
 
 .bimsc-knack-dev-ui table {
-    max-width: 800px; /* Limit table width */
+    max-width: 1200px; /* Limit table width */
     width: 100%; /* Make it responsive */
     margin: 0 auto; /* Center horizontally */
     border-collapse: collapse; /* Optional: Ensures clean borders */

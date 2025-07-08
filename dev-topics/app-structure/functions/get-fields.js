@@ -2,7 +2,7 @@ export function getFields(objects) {
 
     const fields = []
     objects.forEach(obj => {
-        obj.fields.forEach(fld => {
+        obj.fields.models.forEach(fld => {
             fields.push(fld);  // Add each field to the fields array
         });
     });
