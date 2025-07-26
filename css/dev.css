@@ -3,19 +3,20 @@
 .bimsc-knack-dev-container {
     background: black !important;
     color: white;
-    padding-bottom: 10px; 
-    /*margin-bottom: 10px;
-    box-shadow: 0 0 0 10px white;
-     Creates a white 'border' effect */
+    padding-bottom: 10px;
 }
 
 .bimsc-knack-dev-line-item {
     display: flex;
-    justify-content: left; /* Center horizontally */
-    align-items: center; /* Align items vertically */
-    gap: 15px; /* Space between items */
+    justify-content: left;
+    /* Center horizontally */
+    align-items: center;
+    /* Align items vertically */
+    gap: 15px;
+    /* Space between items */
     padding: 0 5px;
-    flex-wrap: wrap; /* Ensures it stays on one line unless screen is too small */
+    flex-wrap: wrap;
+    /* Ensures it stays on one line unless screen is too small */
 }
 
 .bimsc-knack-dev-button {
@@ -25,7 +26,7 @@
     padding: 0 4px;
 }
 
-.bimsc-knack-dev.field-prop{
+.bimsc-knack-dev.field-prop {
     padding: 1px 0;
 }
 
@@ -38,12 +39,26 @@
 }
 
 .bimsc-knack-dev-ui {
+    display: none;
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Align items vertically */
+    gap: 15px;
+    /* Space between items */
+    padding: 0;
+    flex-wrap: wrap;
+    /* Ensures it stays on one line unless screen is too small */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.bimsc-knack-dev-container.top-header:hover .bimsc-knack-dev-ui {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Align items vertically */
-    gap: 15px; /* Space between items */
+    max-height: 200px;
+    /* adjust as needed */
     padding: 10px;
-    flex-wrap: wrap; /* Ensures it stays on one line unless screen is too small */
 }
 
 .bimsc-knack-dev-ui label {
@@ -52,8 +67,12 @@
 }
 
 .bimsc-knack-dev-ui table {
-    max-width: 1200px; /* Limit table width */
-    width: 100%; /* Make it responsive */
-    margin: 0 auto; /* Center horizontally */
-    border-collapse: collapse; /* Optional: Ensures clean borders */
+    max-width: 1200px;
+    /* Limit table width */
+    width: 100%;
+    /* Make it responsive */
+    margin: 0 auto;
+    /* Center horizontally */
+    border-collapse: collapse;
+    /* Optional: Ensures clean borders */
 }

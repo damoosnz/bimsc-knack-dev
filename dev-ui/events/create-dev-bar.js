@@ -15,7 +15,8 @@ export function addDevBar() {
     const $knackInfoBar = $(".kn-info-bar");
 
     // Create the dev bar container
-    const $devContainer = $(`<div class="bimsc-knack-dev-container"></div>`);
+    const $devContainer = $(`<div class="bimsc-knack-dev-container top-header"></div>`);
+    const $devHeader = $(`<div class="bimsc-knack-dev-header">DEV</div>`)
     const $devUi = $(`<div class="bimsc-knack-dev-ui"></div>`);
     let $devUiTable = createDevUiTable()
 
@@ -30,7 +31,7 @@ export function addDevBar() {
 
     // Append elements
     $devUi.append($devUiTable, $reloadButton);
-    $devContainer.append($devUi);
+    $devContainer.append($devHeader, $devUi);
     $devContainer.insertAfter($knackInfoBar); // Append UI to DOM
 
 }
