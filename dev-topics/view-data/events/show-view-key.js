@@ -25,5 +25,3 @@ export function get$ViewKey(view) {
 
 }
 
-// scene link https://builder.knack.com/damoos/findaservice-31/pages/scene_1703
-// view link https://builder.knack.com/damoos/findaservice-31/pages/scene_1703/views/view_4314/table
