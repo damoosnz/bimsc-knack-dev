@@ -1,6 +1,12 @@
 import { createLinkToBuilderField } from "../../view-data/functions/create-links-to-builder.js"
 
-export function get$TableFields(view) {
+export async function get$TableFields(view) {
+
+    const totals = view.totals
+
+    if (totals || totals.length > 0) {
+        await sleep(2000)
+    }
 
     const fields = view.fields
     const objects = Knack.objects.models
@@ -8,15 +14,21 @@ export function get$TableFields(view) {
     const $tableHead = $(`#${view.key} thead`)
     const $tableHeadTr = $(`#${view.key} thead tr`)
 
-    const $fieldsTr = $('<tr class="bimsc-knack-dev fields-data"></tr>')
+    // wait for the totals to render
+
+
+    // const $fieldsTr = $('<tr class="bimsc-knack-dev fields-data"></tr>')
 
     $tableHeadTr.find('th').each(function () {
+
         const $th = $(this)
-        const $fieldTh = extractFieldData($th, fields, objects)
-        $fieldsTr.append($fieldTh)
+        // const $fieldTh = extractFieldData($th, fields, objects)
+        const $fieldCont = extractFieldData($th, fields, objects)
+        // $fieldsTr.append($fieldTh)
+        $th.append($fieldCont)
     })
 
-    $tableHead.before($fieldsTr)
+    // $tableHead.before($fieldsTr)
 
 }
 
@@ -26,7 +38,8 @@ function extractFieldData($th, fields, objects) {
     const thFieldClass = thClasses.find(className => className.includes('field'));
     const thViewLinkClass = thClasses.find(className => className.includes('Link'));
 
-    let $fieldTh = $('<td class="bimsc-knack-dev"></td>')
+    // let $fieldTh = $('<td class="bimsc-knack-dev"></td>')
+    const $fieldCont = $('<div class="bimsc-knack-dev fields-data"></div>')
     const fieldsProperties = []
 
     if (thFieldClass && thFieldClass.length > 0) {
@@ -49,10 +62,17 @@ function extractFieldData($th, fields, objects) {
         const $link = createLinkToBuilderField(field.object_key, field.key)
         fieldsProperties.push($link)
 
-        fieldsProperties.forEach(prop => { $fieldTh.append(prop) })
+        // fieldsProperties.forEach(prop => { $fieldTh.append(prop) })
+        fieldsProperties.forEach(prop => { $fieldCont.append(prop) })
 
     }
 
-    return $fieldTh
+    // return $fieldTh
+    return $fieldCont
 
+}
+
+// Utility sleep function
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
