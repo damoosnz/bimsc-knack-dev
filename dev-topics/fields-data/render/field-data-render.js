@@ -42,19 +42,26 @@ export function showFields() {
 
 }
 
-async function showFieldsData({ selector, getData, view }) {
-        
-        const $placeHolder = $(`#${view.key}`);
+export const renderFields = {
+    table: get$TableFields,
+    form: get$FormFields,
+    list: get$ListFields,
+    details: get$DetailsFields,
+}
 
-        try {
-            const dataResult = await getData(view); // support both sync and async
-            const $devCont = createDevContainer(view);
-            $devCont.find(selector).remove();
-            $devCont.append(dataResult);
-            $placeHolder.prepend($devCont);
-        } catch (err) {
-            // console.warn(`Error getting ${selector} data for view ${view.key}:`, err);
-        }
+async function showFieldsData({ selector, getData, view }) {
+
+    const $placeHolder = $(`#${view.key}`);
+
+    try {
+        const dataResult = await getData(view); // support both sync and async
+        const $devCont = createDevContainer(view);
+        $devCont.find(selector).remove();
+        $devCont.append(dataResult);
+        $placeHolder.prepend($devCont);
+    } catch (err) {
+        // console.warn(`Error getting ${selector} data for view ${view.key}:`, err);
+    }
 
 }
 

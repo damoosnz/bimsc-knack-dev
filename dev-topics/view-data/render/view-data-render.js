@@ -33,11 +33,20 @@ export function showScripts() {
 
 }
 
-function showDevData({ selector, getData }) {
+export const renderOptions = {
+    script: get$viewScripts,
+    source: get$viewSource,
+    path: get$ViewPath,
+    key: get$ViewKey
+}
+
+
+
+function showDevData1({ selector, getData }) {
     $(document).on('knack-view-render.any', async function (event, view, data) {
 
         const $placeHolder = $(`#${view.key}`);
-        
+
         try {
             const dataResult = await getData(view); // support both sync and async
             const $devCont = createDevContainer(view);
@@ -49,6 +58,43 @@ function showDevData({ selector, getData }) {
         }
     });
 }
+
+async function showDevData({ selector, getData }) {
+
+    // hash_scenes
+
+    const scenesHash = Knack.hash_scenes
+    console.log({ scenesHash })
+    const lastHash = scenesHash[scenesHash.length - 1]
+    console.log({ lastHash })
+    const curSceneSlug = lastHash.slug
+    console.log({ curSceneSlug })
+    const curScene = Knack.scenes.models.find(s => s.attributes.slug === curSceneSlug)
+    const views = curScene.attributes.views
+
+    for (const view of views) {
+
+        const $placeHolder = $(`#${view.key}`);
+
+        try {
+            const dataResult = await getData(view); // support both sync and async
+            const $devCont = createDevContainer(view);
+            $devCont.find(selector).remove();
+            $devCont.append(dataResult);
+            $placeHolder.prepend($devCont);
+        } catch (err) {
+            // console.warn(`Error getting ${selector} data for view ${view.key}:`, err);
+        }
+
+    }
+
+}
+
+
+
+
+
+
 
 
 

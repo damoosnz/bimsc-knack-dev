@@ -12,12 +12,14 @@ export function get$DetailsFields(view) {
         $fld.before($fieldData)
     })
 
+    return $(`#${view.key}`).find('.fields-data')
+
 }
 
 
 function extractFieldData($fld, fields, objects) {
 
-    const fieldInputData = $fld.attr('class');
+    const fieldInputData = $fld.attr('class').split(' ')[1];
     const field = fields.find(el => el.attributes.key === fieldInputData)
 
     let $fieldData = $('<div class="bimsc-knack-dev fields-data"></div>')

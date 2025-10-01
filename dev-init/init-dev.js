@@ -16,35 +16,35 @@ export function initDev() {
                 input: {type: 'checkBox', label: 'console dev logs'}
             }
         },
-        viewData: {
-            key: {
-                on: false,
-                handler: showKey,
-                input: {type: 'checkBox', label: 'show scene & view keys'}
-            },
-            path: { 
-                on: false,
-                handler: showPath,
-                input: {type: 'checkBox', label: 'show scene path'}
-            },
-            source: {
-                on: false,
-                handler: showSource,
-                input: {type: 'checkBox', label: 'show view source object'}
-            },
-            scripts: {
-                on: false,
-                handler: showScripts,
-                input: {type: 'checkBox', label: 'show scripts for view'}
-            }
-        },
-        fieldsData: {
-            fields: {
-                on: false,
-                handler: showFields,
-                input: {type: 'checkBox', label: 'show fields info'}
-            },
-        },
+        // viewData: {
+        //     key: {
+        //         on: false,
+        //         handler: showKey,
+        //         input: {type: 'checkBox', label: 'show scene & view keys'}
+        //     },
+        //     path: { 
+        //         on: false,
+        //         handler: showPath,
+        //         input: {type: 'checkBox', label: 'show scene path'}
+        //     },
+        //     source: {
+        //         on: false,
+        //         handler: showSource,
+        //         input: {type: 'checkBox', label: 'show view source object'}
+        //     },
+        //     scripts: {
+        //         on: false,
+        //         handler: showScripts,
+        //         input: {type: 'checkBox', label: 'show scripts for view'}
+        //     }
+        // },
+        // fieldsData: {
+        //     fields: {
+        //         on: false,
+        //         handler: showFields,
+        //         input: {type: 'checkBox', label: 'show fields info'}
+        //     },
+        // },
         searchApp: {
             scene: {
                 on: true,

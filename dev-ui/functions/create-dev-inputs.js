@@ -17,7 +17,6 @@ export function renderDevInputs(dev, $devUiTable) {
             // check if second level contains key input
             if (config && typeof config === 'object' && 'input' in config && 'handler' in config) {
 
-
                 const curInput = config.input;
                 // console.log('input', input)
 
@@ -31,15 +30,16 @@ export function renderDevInputs(dev, $devUiTable) {
                     $input = createDevCheckBox(curInput.label, l2Key, config.on)
 
                     // Capture keys per iteration with closure
-                    // function eventwraper(l1, l2) {
                     $input.find(`input[name="${l2Key}"]`).on('change', function () {
+
                         const newVal = $(this).is(':checked');
+
+                        // save state to local storage
                         dev[l1Key][l2Key].on = newVal;
                         saveDev(dev)
                     });
-                    // }
 
-                    // eventwraper(l1Key, l2Key);
+
 
                     // append the input to the table
                     $devUiTable.find(`#${l1Key}`).append($input)

@@ -28,7 +28,7 @@ export async function get$TableFields(view) {
         $th.append($fieldCont)
     })
 
-    // $tableHead.before($fieldsTr)
+    return $tableHeadTr.find('.fields-data')
 
 }
 

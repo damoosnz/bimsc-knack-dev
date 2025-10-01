@@ -9,8 +9,6 @@ dev = configDev(dev)
 // run the hanlders based on the dev config
 await runEnabledHandlers(dev)
 
-
-
 async function runEnabledHandlers(config) {
     for (const [sKey, section] of Object.entries(config)) {
         if (sKey === "searchApp") continue

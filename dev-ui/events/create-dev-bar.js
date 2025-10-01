@@ -35,3 +35,8 @@ export function addDevBar() {
     $devContainer.insertAfter($knackInfoBar); // Append UI to DOM
 
 }
+
+// const currentScene = Knack.scenes.models.find(scene => scene.attributes.slug === Knack.getCurrentScene().slug);
+//   const sceneKey = currentScene.attributes.key;
+//   const sceneName = currentScene.attributes.name;
+//   const sceneBuilderUrl = `https://builder.knack.com/${Knack.account.name}/${Knack.app.attributes.slug}/pages/${sceneKey}`;

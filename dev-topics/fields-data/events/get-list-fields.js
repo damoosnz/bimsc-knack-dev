@@ -14,6 +14,8 @@ export function get$ListFields(view) {
         $fld.before($fieldData)
     })
 
+    return $firstCard.find('.fields-data')
+
 }
 
 function extractFieldData($fld, fields, objects) {

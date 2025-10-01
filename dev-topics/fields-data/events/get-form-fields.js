@@ -13,6 +13,8 @@ export function get$FormFields(view) {
         $fld.before($fieldData)
     })
 
+    return $(`#${view.key}`).find('.fields-data')
+
 }
 
 function extractFieldData($fld, fields, objects) {
