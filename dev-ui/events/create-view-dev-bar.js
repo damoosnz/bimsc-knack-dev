@@ -1,6 +1,7 @@
 import { renderOptions } from "../../dev-topics/view-data/render/view-data-render.js";
 import { renderFields } from "../../dev-topics/fields-data/render/field-data-render.js";
 import { createDevContainer } from "../functions/create-dev-container.js";
+import { createDevOptions } from "../functions/create-dev-options.js";
 
 const options = [
     'key',
@@ -14,8 +15,7 @@ $(document).on('knack-view-render.any', async function (event, view, data) {
 
     const $view = $(`#${view.key}`);
     const $devContainer = createDevContainer(view).prependTo($view);
-    const $options = $(`<div class="bimsc-knack-dev-line-item options"></div>`)
-        .appendTo($devContainer);
+    const $options = createDevOptions($devContainer).appendTo($devContainer);
 
     // define toggleEvent BEFORE loop
     const toggleEvent = ($inp, $res) => {
