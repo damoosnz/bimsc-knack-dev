@@ -1,6 +1,8 @@
 import { getJsFiles } from "../functions/get-js-files.js";
 import { listJsFiles } from "../functions/list-js-files.js";
 
+const _scriptContentCache = new Map();
+
 export async function get$viewScripts(view) {
 
     let jsFiles = getJsFiles()
@@ -20,8 +22,11 @@ export async function get$viewScripts(view) {
     // Fetch and search through each JS file
     for (const jsFile of jsFiles) {
         try {
-            const response = await fetch(jsFile);
-            const scriptContent = await response.text();
+            if (!_scriptContentCache.has(jsFile)) {
+                const response = await fetch(jsFile);
+                _scriptContentCache.set(jsFile, await response.text());
+            }
+            const scriptContent = _scriptContentCache.get(jsFile);
 
             // Search for each key in the script content using regular expressions
             for (const searchKey of searchKeys) {

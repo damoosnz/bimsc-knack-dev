@@ -1,4 +1,7 @@
+let _jsFilesCache = null;
+
 export function getJsFiles() {
+    if (_jsFilesCache) return _jsFilesCache;
 
     const resources = performance.getEntriesByType('resource');
 
@@ -9,5 +12,10 @@ export function getJsFiles() {
         resource.name !== 'http://localhost:8888/reusable-js/_dev/dev-config.js'
     );
 
-    return jsFiles.map(f => f.name)
+    _jsFilesCache = jsFiles.map(f => f.name);
+    return _jsFilesCache;
+}
+
+export function clearJsFilesCache() {
+    _jsFilesCache = null;
 }
