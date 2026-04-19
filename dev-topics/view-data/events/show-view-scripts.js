@@ -23,10 +23,9 @@ export async function get$viewScripts(view) {
     for (const jsFile of jsFiles) {
         try {
             if (!_scriptContentCache.has(jsFile)) {
-                const response = await fetch(jsFile);
-                _scriptContentCache.set(jsFile, await response.text());
+                _scriptContentCache.set(jsFile, fetch(jsFile).then(r => r.text()));
             }
-            const scriptContent = _scriptContentCache.get(jsFile);
+            const scriptContent = await _scriptContentCache.get(jsFile);
 
             // Search for each key in the script content using regular expressions
             for (const searchKey of searchKeys) {
