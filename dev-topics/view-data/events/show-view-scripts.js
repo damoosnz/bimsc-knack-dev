@@ -5,7 +5,7 @@ const _scriptContentCache = new Map();
 
 export async function get$viewScripts(view) {
 
-    let jsFiles = getJsFiles()
+    let jsFiles = await getJsFiles()
 
     // Array to hold results of the search
     const searchKeys = [view.key]; // [view.key, ".any", `.${view.type}`]
